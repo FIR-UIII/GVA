@@ -1,0 +1,1308 @@
+[2025-04-02 22:20:50] This is codeql database create gva_codeql_db --language=go
+[2025-04-02 22:20:50] Log file was started late.
+[2025-04-02 22:20:50] [PROGRESS] database create> Initializing database at /Users/artem/Projects/GVA/gva_codeql_db.
+[2025-04-02 22:20:50] Running plumbing command: codeql database init --language=go --extractor-options-verbosity=1 --qlconfig-file=/Users/artem/Projects/GVA/qlconfig.yml --source-root=/Users/artem/Projects/GVA --allow-missing-source-root=false --allow-already-existing -- /Users/artem/Projects/GVA/gva_codeql_db
+[2025-04-02 22:20:50] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/homebrew/Caskroom/codeql/2.20.7/codeql/.codeqlmanifest.json
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/python/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/java/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/html/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/xml/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/properties/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/cpp/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/swift/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/csv/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/actions/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/yaml/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/csharp/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/javascript/codeql-extractor.yml.
+[2025-04-02 22:20:51] [DETAILS] resolve languages> Parsing /opt/homebrew/Caskroom/codeql/2.20.7/codeql/ruby/codeql-extractor.yml.
+[2025-04-02 22:20:51] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/html"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/xml"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/properties"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/csv"
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/yaml"
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/homebrew/Caskroom/codeql/2.20.7/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-04-02 22:20:51] [PROGRESS] database init> Calculating baseline information in /Users/artem/Projects/GVA
+[2025-04-02 22:20:51] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2025-04-02 22:20:51] [DETAILS] database init> Running command in /Users/artem/Projects/GVA: /opt/homebrew/Caskroom/codeql/2.20.7/codeql/tools/osx64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2025-04-02 22:20:51] Using configure-baseline script /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/configure-baseline.sh.
+[2025-04-02 22:20:51] [PROGRESS] database init> Running command in /Users/artem/Projects/GVA: [/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/configure-baseline.sh]
+[2025-04-02 22:20:52] [SPAMMY] database init> Found 2 baseline files for go.
+[2025-04-02 22:20:52] [PROGRESS] database init> Calculated baseline information for languages: go (1.4s).
+[2025-04-02 22:20:52] [PROGRESS] database init> Resolving extractor go.
+[2025-04-02 22:20:52] [DETAILS] database init> Found candidate extractor root for go: /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go.
+[2025-04-02 22:20:52] [PROGRESS] database init> Successfully loaded extractor Go (go) from /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go.
+[2025-04-02 22:20:52] [SPAMMY] database init> Determining macOS System Integrity Protection status...
+[2025-04-02 22:20:52] [SPAMMY] database init> Running command [/usr/bin/csrutil, status].
+[2025-04-02 22:20:52] [SPAMMY] database init> SIP is enabled.
+[2025-04-02 22:20:52] [PROGRESS] database init> Created skeleton CodeQL database at /Users/artem/Projects/GVA/gva_codeql_db. This in-progress database is ready to be populated by an extractor.
+[2025-04-02 22:20:52] Plumbing command codeql database init completed.
+[2025-04-02 22:20:52] Using autobuild script /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/autobuild.sh.
+[2025-04-02 22:20:52] [DETAILS] database create> Detected autobuild command for Go: /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/autobuild.sh.
+[2025-04-02 22:20:52] [PROGRESS] database create> Running build command: [/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/autobuild.sh]
+[2025-04-02 22:20:52] Running plumbing command: codeql database trace-command --working-dir=/Users/artem/Projects/GVA --index-traceless-dbs --no-db-cluster -- /Users/artem/Projects/GVA/gva_codeql_db /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/autobuild.sh
+[2025-04-02 22:20:52] [PROGRESS] database trace-command> Running command in /Users/artem/Projects/GVA: [/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/autobuild.sh]
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Autobuilder was built with go1.24.0, environment has go1.24.2
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 LGTM_SRC is /Users/artem/Projects/GVA
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Found no go.work files in the workspace; looking for go.mod files...
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Found 1 go.mod files in: go.mod.
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Found 1 go.mod file(s).
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Unable to determine import path, as neither LGTM_INDEX_IMPORT_PATH nor GITHUB_REPOSITORY is set
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Failed to stat go.sum after running `go mod tidy -e`: stat go.sum: no such file or directory
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Unable to find any build scripts, continuing to install dependencies in the normal way.
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Installing dependencies using `go get -v ./...` in `.`.
+[2025-04-02 22:20:56] [build-stderr] 2025/04/02 22:20:56 Running extractor command '/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/osx64/go-extractor [./...]' from directory '.'.
+[2025-04-02 22:20:57] [build-stderr] 2025/04/02 22:20:57 Build flags: ''; patterns: './...'
+[2025-04-02 22:20:57] [build-stderr] 2025/04/02 22:20:57 Running packages.Load.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done running packages.Load.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting universe scope.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting universe scope.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Running go list to resolve package and module directories.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done running go list deps: resolved 171 packages.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/goarch.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/goarch.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/goarch.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package unsafe.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package unsafe.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package unsafe.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/abi.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/abi.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/abi.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/unsafeheader.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/unsafeheader.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/unsafeheader.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/cpu.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/cpu.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/cpu.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/bytealg.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/bytealg.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/bytealg.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/byteorder.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/byteorder.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/byteorder.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/chacha8rand.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/chacha8rand.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/chacha8rand.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/coverage/rtcov.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/coverage/rtcov.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/coverage/rtcov.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/godebugs.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/godebugs.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/godebugs.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/goexperiment.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/goexperiment.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/goexperiment.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/goos.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/goos.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/goos.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/profilerecord.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/profilerecord.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/profilerecord.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/runtime/atomic.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/runtime/atomic.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/runtime/atomic.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/runtime/exithook.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/runtime/exithook.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/runtime/exithook.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/asan.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/asan.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/asan.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/msan.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/msan.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/msan.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/race.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/race.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/race.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/runtime/math.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/runtime/math.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/runtime/math.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/runtime/sys.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/runtime/sys.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/runtime/sys.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/runtime/maps.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/runtime/maps.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/runtime/maps.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/stringslite.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/stringslite.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/stringslite.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package runtime.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package runtime.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package runtime.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/reflectlite.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/reflectlite.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/reflectlite.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package errors.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package errors.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package errors.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package cmp.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package cmp.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package cmp.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package internal/itoa.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package internal/itoa.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package internal/itoa.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package iter.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package iter.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package iter.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package math/bits.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package math/bits.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package math/bits.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package math.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package math.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package math.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package unicode/utf8.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package unicode/utf8.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Done extracting types for package unicode/utf8.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Processing package strconv.
+[2025-04-02 22:20:58] [build-stderr] 2025/04/02 22:20:58 Extracting types for package strconv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package strconv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package sync/atomic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package sync/atomic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package sync/atomic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package unicode.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package unicode.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package unicode.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package reflect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package reflect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package reflect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package slices.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package slices.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package slices.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/fmtsort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/fmtsort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/fmtsort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package io.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package io.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package io.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/oserror.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/oserror.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/oserror.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package path.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package path.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package path.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/bisect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/bisect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/bisect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package syscall.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package syscall.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package syscall.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package time.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package time.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package time.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package io/fs.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package io/fs.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package io/fs.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/filepathlite.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/filepathlite.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/filepathlite.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/syscall/unix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/syscall/unix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/syscall/unix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/poll.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/poll.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/poll.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/syscall/execenv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/syscall/execenv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/syscall/execenv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/testlog.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/testlog.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/testlog.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package os.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package os.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package os.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package fmt.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package fmt.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package fmt.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package bytes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package bytes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package bytes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package strings.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package strings.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package strings.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package bufio.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package bufio.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package bufio.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package sort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package sort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package sort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package compress/flate.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package compress/flate.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package compress/flate.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package encoding/binary.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package encoding/binary.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package encoding/binary.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package hash/crc32.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package hash/crc32.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package hash/crc32.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package compress/gzip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package compress/gzip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package compress/gzip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package container/list.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package container/list.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package container/list.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package context.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package context.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package context.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140deps/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140deps/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140deps/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140deps/byteorder.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140deps/byteorder.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140deps/byteorder.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140deps/cpu.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140deps/cpu.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140deps/cpu.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/impl.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/impl.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/impl.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/check.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/check.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/check.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/sysrand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/sysrand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/sysrand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/entropy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/entropy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/entropy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package math/rand/v2.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package math/rand/v2.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package math/rand/v2.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/randutil.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/randutil.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/randutil.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/drbg.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/drbg.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/drbg.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/aes/gcm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/aes/gcm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/aes/gcm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140only.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140only.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140only.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/cipher.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/cipher.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/cipher.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/boring/sig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/boring/sig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/boring/sig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/boring.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/boring.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/boring.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package math/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package math/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package math/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package math/big.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package math/big.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package math/big.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/des.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/des.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/des.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/nistec/fiat.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/nistec/fiat.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/nistec/fiat.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/nistec.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/nistec.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/nistec.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/edwards25519/field.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/edwards25519/field.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/edwards25519/field.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/elliptic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/elliptic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/elliptic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/boring/bbig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/boring/bbig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/boring/bbig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/bigmod.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/bigmod.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/bigmod.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package unicode/utf16.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package unicode/utf16.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package unicode/utf16.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package encoding/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package encoding/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package encoding/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/crypto/cryptobyte/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/crypto/cryptobyte/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/crypto/cryptobyte/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/crypto/cryptobyte.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/crypto/cryptobyte.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/crypto/cryptobyte.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/edwards25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/edwards25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/edwards25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/hkdf.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/hkdf.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/hkdf.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/mlkem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/mlkem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/mlkem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/tls12.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/tls12.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/tls12.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/tls13.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/tls13.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/tls13.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/crypto/internal/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/crypto/internal/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/crypto/internal/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/crypto/chacha20.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/crypto/chacha20.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/crypto/chacha20.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/crypto/internal/poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/crypto/internal/poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/crypto/internal/poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/crypto/chacha20poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/crypto/chacha20poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/crypto/chacha20poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/hpke.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/hpke.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/hpke.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/md5.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/md5.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/md5.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/rc4.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/rc4.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/rc4.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/internal/fips140/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/internal/fips140/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/internal/fips140/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/sha1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/sha1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/sha1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/tls/internal/fips140tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/tls/internal/fips140tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/tls/internal/fips140tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/dsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/dsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/dsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/x509/internal/macos.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/x509/internal/macos.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/x509/internal/macos.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package encoding/hex.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package encoding/hex.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package encoding/hex.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/x509/pkix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/x509/pkix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/x509/pkix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package encoding/base64.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package encoding/base64.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package encoding/base64.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package encoding/pem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package encoding/pem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package encoding/pem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package maps.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package maps.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package maps.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/net/dns/dnsmessage.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/net/dns/dnsmessage.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/net/dns/dnsmessage.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/net/route.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/net/route.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/net/route.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/nettrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/nettrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/nettrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package internal/singleflight.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package internal/singleflight.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package internal/singleflight.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package weak.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package weak.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package weak.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package unique.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package unique.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package unique.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/netip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/netip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/netip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/url.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/url.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/url.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/x509.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/x509.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/x509.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package crypto/tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package crypto/tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package crypto/tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/text/transform.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/text/transform.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/text/transform.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package log/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package log/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package log/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package log.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package log.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package log.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/text/unicode/bidi.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/text/unicode/bidi.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/text/unicode/bidi.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/text/secure/bidirule.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/text/secure/bidirule.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/text/secure/bidirule.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/text/unicode/norm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/text/unicode/norm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/text/unicode/norm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/net/idna.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/net/idna.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/net/idna.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/textproto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/textproto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/textproto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/net/http/httpguts.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/net/http/httpguts.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/net/http/httpguts.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/net/http/httpproxy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/net/http/httpproxy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/net/http/httpproxy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package vendor/golang.org/x/net/http2/hpack.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package vendor/golang.org/x/net/http2/hpack.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package vendor/golang.org/x/net/http2/hpack.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package mime.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package mime.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package mime.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package mime/quotedprintable.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package mime/quotedprintable.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package mime/quotedprintable.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package path/filepath.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package path/filepath.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package path/filepath.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package mime/multipart.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package mime/multipart.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package mime/multipart.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/http/httptrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/http/httptrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/http/httptrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/http/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/http/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/http/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/http/internal/ascii.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/http/internal/ascii.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/http/internal/ascii.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package net/http.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package net/http.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package net/http.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package github.com/FIR_UIII/GVA/xss.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package github.com/FIR_UIII/GVA/xss.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package github.com/FIR_UIII/GVA/xss.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Processing package github.com/FIR_UIII/GVA.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting types for package github.com/FIR_UIII/GVA.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting types for package github.com/FIR_UIII/GVA.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done processing dependencies.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Starting to extract packages.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/goarch.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package unsafe.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/abi.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/unsafeheader.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/cpu.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/bytealg.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/byteorder.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/chacha8rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/coverage/rtcov.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/godebugs.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/goexperiment.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/goos.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/profilerecord.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/runtime/atomic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/runtime/exithook.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/asan.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/msan.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/race.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/runtime/math.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/runtime/sys.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/runtime/maps.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/stringslite.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package runtime.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/reflectlite.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package errors.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package cmp.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/itoa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package iter.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package math/bits.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package math.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package unicode/utf8.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package strconv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package sync/atomic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package sync.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package unicode.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package reflect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package slices.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/fmtsort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package io.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/oserror.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package path.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/bisect.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package syscall.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package time.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package io/fs.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/filepathlite.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/syscall/unix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/poll.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/syscall/execenv.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/testlog.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package os.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package fmt.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package bytes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package strings.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package bufio.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package sort.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package compress/flate.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package encoding/binary.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package hash/crc32.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package compress/gzip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package container/list.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package context.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140deps/godebug.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140deps/byteorder.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140deps/cpu.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/impl.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/check.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/sysrand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/entropy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package math/rand/v2.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/randutil.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/drbg.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/aes/gcm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140only.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/subtle.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/cipher.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/boring/sig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/boring.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package math/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package math/big.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/rand.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/aes.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/des.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/nistec/fiat.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/nistec.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/edwards25519/field.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/ecdh.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/elliptic.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/boring/bbig.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/bigmod.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/sha3.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140hash.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/sha512.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package unicode/utf16.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package encoding/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/crypto/cryptobyte/asn1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/crypto/cryptobyte.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/ecdsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/edwards25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/ed25519.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/hmac.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/hkdf.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/mlkem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/tls12.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/tls13.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/crypto/internal/alias.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/crypto/chacha20.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/crypto/internal/poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/crypto/chacha20poly1305.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/hpke.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/md5.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/rc4.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/internal/fips140/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/rsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/sha1.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/sha256.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/tls/internal/fips140tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/dsa.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/x509/internal/macos.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package encoding/hex.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/x509/pkix.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package encoding/base64.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package encoding/pem.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package maps.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/net/dns/dnsmessage.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/net/route.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/nettrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package internal/singleflight.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package weak.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package unique.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/netip.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/url.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/x509.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package crypto/tls.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/text/transform.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package log/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package log.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/text/unicode/bidi.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/text/secure/bidirule.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/text/unicode/norm.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/net/idna.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/textproto.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/net/http/httpguts.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/net/http/httpproxy.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package vendor/golang.org/x/net/http2/hpack.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package mime.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package mime/quotedprintable.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package path/filepath.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package mime/multipart.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/http/httptrace.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/http/internal.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/http/internal/ascii.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Skipping dependency package net/http.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting /Users/artem/Projects/GVA/go.mod
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting /Users/artem/Projects/GVA/xss/xss.go
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting /Users/artem/Projects/GVA/go.mod (2ms)
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting /Users/artem/Projects/GVA/go.mod
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting /Users/artem/Projects/GVA/go.mod (0ms)
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Extracting /Users/artem/Projects/GVA/main.go
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting /Users/artem/Projects/GVA/main.go (0ms)
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting /Users/artem/Projects/GVA/xss/xss.go (62ms)
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Done extracting packages.
+[2025-04-02 22:20:59] [build-stderr] 2025/04/02 22:20:59 Success: extraction succeeded for all 1 discovered project(s).
+[2025-04-02 22:20:59] Plumbing command codeql database trace-command completed.
+[2025-04-02 22:20:59] [PROGRESS] database create> Finalizing database at /Users/artem/Projects/GVA/gva_codeql_db.
+[2025-04-02 22:20:59] Running plumbing command: codeql database finalize --no-db-cluster -- /Users/artem/Projects/GVA/gva_codeql_db
+[2025-04-02 22:20:59] Using pre-finalize script /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/pre-finalize.sh.
+[2025-04-02 22:20:59] [PROGRESS] database finalize> Running pre-finalize script /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/pre-finalize.sh in /Users/artem/Projects/GVA.
+[2025-04-02 22:20:59] Running plumbing command: codeql database trace-command --working-dir=/Users/artem/Projects/GVA --no-tracing -- /Users/artem/Projects/GVA/gva_codeql_db /opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/pre-finalize.sh
+[2025-04-02 22:20:59] [PROGRESS] database trace-command> Running command in /Users/artem/Projects/GVA: [/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/tools/pre-finalize.sh]
+[2025-04-02 22:21:00] [build-stderr] Scanning for files in /Users/artem/Projects/GVA...
+[2025-04-02 22:21:00] Plumbing command codeql database trace-command completed.
+[2025-04-02 22:21:00] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /Users/artem/Projects/GVA/gva_codeql_db...
+[2025-04-02 22:21:00] Running plumbing command: codeql dataset import --dbscheme=/opt/homebrew/Caskroom/codeql/2.20.7/codeql/go/go.dbscheme -- /Users/artem/Projects/GVA/gva_codeql_db/db-go /Users/artem/Projects/GVA/gva_codeql_db/trap/go
+[2025-04-02 22:21:00] Clearing disk cache since the version file /Users/artem/Projects/GVA/gva_codeql_db/db-go/default/cache/version does not exist
+[2025-04-02 22:21:00] Tuple pool not found. Clearing relations with cached strings
+[2025-04-02 22:21:00] Trimming disk cache at /Users/artem/Projects/GVA/gva_codeql_db/db-go/default/cache in mode clear.
+[2025-04-02 22:21:00] Sequence stamp origin is -6065087985465723984
+[2025-04-02 22:21:00] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-04-02 22:21:00] Unpausing evaluation
+[2025-04-02 22:21:00] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-04-02 22:21:00] Unpausing evaluation
+[2025-04-02 22:21:00] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-04-02 22:21:00] Unpausing evaluation
+[2025-04-02 22:21:00] Trimming completed (6ms): Purged everything.
+[2025-04-02 22:21:00] Scanning for files in /Users/artem/Projects/GVA/gva_codeql_db/trap/go
+[2025-04-02 22:21:00] Found 177 TRAP files (2.16 MiB)
+[2025-04-02 22:21:00] [PROGRESS] dataset import> Importing TRAP files
+[2025-04-02 22:21:00] Importing go.mod.trap.gz (1 of 177)
+[2025-04-02 22:21:00] Importing main.go.trap.gz (2 of 177)
+[2025-04-02 22:21:00] Importing xss.go.trap.gz (3 of 177)
+[2025-04-02 22:21:00] Importing bufio.trap.gz (4 of 177)
+[2025-04-02 22:21:00] Importing bytes.trap.gz (5 of 177)
+[2025-04-02 22:21:00] Importing cmp.trap.gz (6 of 177)
+[2025-04-02 22:21:00] Importing 28f530e9e525976ed00ea880e495de_0.trap.gz (7 of 177)
+[2025-04-02 22:21:00] Importing flate.trap.gz (8 of 177)
+[2025-04-02 22:21:00] Importing gzip.trap.gz (9 of 177)
+[2025-04-02 22:21:00] Importing list.trap.gz (10 of 177)
+[2025-04-02 22:21:00] Importing context.trap.gz (11 of 177)
+[2025-04-02 22:21:00] Importing aes.trap.gz (12 of 177)
+[2025-04-02 22:21:00] Importing cipher.trap.gz (13 of 177)
+[2025-04-02 22:21:00] Importing des.trap.gz (14 of 177)
+[2025-04-02 22:21:00] Importing dsa.trap.gz (15 of 177)
+[2025-04-02 22:21:00] Importing ecdh.trap.gz (16 of 177)
+[2025-04-02 22:21:00] Importing ecdsa.trap.gz (17 of 177)
+[2025-04-02 22:21:00] Importing ed25519.trap.gz (18 of 177)
+[2025-04-02 22:21:00] Importing elliptic.trap.gz (19 of 177)
+[2025-04-02 22:21:00] Importing hmac.trap.gz (20 of 177)
+[2025-04-02 22:21:00] Importing bbig.trap.gz (21 of 177)
+[2025-04-02 22:21:00] Importing sig.trap.gz (22 of 177)
+[2025-04-02 22:21:00] Importing boring.trap.gz (23 of 177)
+[2025-04-02 22:21:00] Importing entropy.trap.gz (24 of 177)
+[2025-04-02 22:21:00] Importing gcm.trap.gz (25 of 177)
+[2025-04-02 22:21:00] Importing aes.trap.gz (26 of 177)
+[2025-04-02 22:21:00] Importing alias.trap.gz (27 of 177)
+[2025-04-02 22:21:00] Importing bigmod.trap.gz (28 of 177)
+[2025-04-02 22:21:00] Importing check.trap.gz (29 of 177)
+[2025-04-02 22:21:00] Importing drbg.trap.gz (30 of 177)
+[2025-04-02 22:21:00] Importing ecdh.trap.gz (31 of 177)
+[2025-04-02 22:21:00] Importing ecdsa.trap.gz (32 of 177)
+[2025-04-02 22:21:00] Importing ed25519.trap.gz (33 of 177)
+[2025-04-02 22:21:00] Importing field.trap.gz (34 of 177)
+[2025-04-02 22:21:00] Importing edwards25519.trap.gz (35 of 177)
+[2025-04-02 22:21:00] Importing hkdf.trap.gz (36 of 177)
+[2025-04-02 22:21:00] Importing hmac.trap.gz (37 of 177)
+[2025-04-02 22:21:00] Importing mlkem.trap.gz (38 of 177)
+[2025-04-02 22:21:00] Importing fiat.trap.gz (39 of 177)
+[2025-04-02 22:21:00] Importing nistec.trap.gz (40 of 177)
+[2025-04-02 22:21:00] Importing rsa.trap.gz (41 of 177)
+[2025-04-02 22:21:00] Importing sha256.trap.gz (42 of 177)
+[2025-04-02 22:21:00] Importing sha3.trap.gz (43 of 177)
+[2025-04-02 22:21:00] Importing sha512.trap.gz (44 of 177)
+[2025-04-02 22:21:00] Importing subtle.trap.gz (45 of 177)
+[2025-04-02 22:21:00] Importing tls12.trap.gz (46 of 177)
+[2025-04-02 22:21:00] Importing tls13.trap.gz (47 of 177)
+[2025-04-02 22:21:00] Importing fips140.trap.gz (48 of 177)
+[2025-04-02 22:21:00] Importing byteorder.trap.gz (49 of 177)
+[2025-04-02 22:21:00] Importing cpu.trap.gz (50 of 177)
+[2025-04-02 22:21:00] Importing godebug.trap.gz (51 of 177)
+[2025-04-02 22:21:00] Importing fips140hash.trap.gz (52 of 177)
+[2025-04-02 22:21:00] Importing fips140only.trap.gz (53 of 177)
+[2025-04-02 22:21:00] Importing hpke.trap.gz (54 of 177)
+[2025-04-02 22:21:00] Importing impl.trap.gz (55 of 177)
+[2025-04-02 22:21:00] Importing randutil.trap.gz (56 of 177)
+[2025-04-02 22:21:00] Importing sysrand.trap.gz (57 of 177)
+[2025-04-02 22:21:00] Importing md5.trap.gz (58 of 177)
+[2025-04-02 22:21:00] Importing rand.trap.gz (59 of 177)
+[2025-04-02 22:21:00] Importing rc4.trap.gz (60 of 177)
+[2025-04-02 22:21:00] Importing rsa.trap.gz (61 of 177)
+[2025-04-02 22:21:00] Importing sha1.trap.gz (62 of 177)
+[2025-04-02 22:21:00] Importing sha256.trap.gz (63 of 177)
+[2025-04-02 22:21:00] Importing sha3.trap.gz (64 of 177)
+[2025-04-02 22:21:00] Importing sha512.trap.gz (65 of 177)
+[2025-04-02 22:21:00] Importing subtle.trap.gz (66 of 177)
+[2025-04-02 22:21:00] Importing fips140tls.trap.gz (67 of 177)
+[2025-04-02 22:21:00] Importing tls.trap.gz (68 of 177)
+[2025-04-02 22:21:00] Importing macos.trap.gz (69 of 177)
+[2025-04-02 22:21:00] Importing pkix.trap.gz (70 of 177)
+[2025-04-02 22:21:00] Importing x509.trap.gz (71 of 177)
+[2025-04-02 22:21:00] Importing crypto.trap.gz (72 of 177)
+[2025-04-02 22:21:00] Importing asn1.trap.gz (73 of 177)
+[2025-04-02 22:21:00] Importing base64.trap.gz (74 of 177)
+[2025-04-02 22:21:00] Importing binary.trap.gz (75 of 177)
+[2025-04-02 22:21:00] Importing hex.trap.gz (76 of 177)
+[2025-04-02 22:21:00] Importing pem.trap.gz (77 of 177)
+[2025-04-02 22:21:00] Importing errors.trap.gz (78 of 177)
+[2025-04-02 22:21:00] Importing fmt.trap.gz (79 of 177)
+[2025-04-02 22:21:00] Importing xss.trap.gz (80 of 177)
+[2025-04-02 22:21:00] Importing GVA.trap.gz (81 of 177)
+[2025-04-02 22:21:00] Importing crc32.trap.gz (82 of 177)
+[2025-04-02 22:21:00] Importing hash.trap.gz (83 of 177)
+[2025-04-02 22:21:00] Importing abi.trap.gz (84 of 177)
+[2025-04-02 22:21:00] Importing asan.trap.gz (85 of 177)
+[2025-04-02 22:21:00] Importing bisect.trap.gz (86 of 177)
+[2025-04-02 22:21:00] Importing bytealg.trap.gz (87 of 177)
+[2025-04-02 22:21:00] Importing byteorder.trap.gz (88 of 177)
+[2025-04-02 22:21:00] Importing chacha8rand.trap.gz (89 of 177)
+[2025-04-02 22:21:00] Importing rtcov.trap.gz (90 of 177)
+[2025-04-02 22:21:00] Importing cpu.trap.gz (91 of 177)
+[2025-04-02 22:21:00] Importing filepathlite.trap.gz (92 of 177)
+[2025-04-02 22:21:00] Importing fmtsort.trap.gz (93 of 177)
+[2025-04-02 22:21:00] Importing goarch.trap.gz (94 of 177)
+[2025-04-02 22:21:00] Importing godebug.trap.gz (95 of 177)
+[2025-04-02 22:21:00] Importing godebugs.trap.gz (96 of 177)
+[2025-04-02 22:21:00] Importing goexperiment.trap.gz (97 of 177)
+[2025-04-02 22:21:00] Importing goos.trap.gz (98 of 177)
+[2025-04-02 22:21:00] Importing itoa.trap.gz (99 of 177)
+[2025-04-02 22:21:00] Importing msan.trap.gz (100 of 177)
+[2025-04-02 22:21:00] Importing nettrace.trap.gz (101 of 177)
+[2025-04-02 22:21:00] Importing oserror.trap.gz (102 of 177)
+[2025-04-02 22:21:00] Importing poll.trap.gz (103 of 177)
+[2025-04-02 22:21:00] Importing profilerecord.trap.gz (104 of 177)
+[2025-04-02 22:21:00] Importing race.trap.gz (105 of 177)
+[2025-04-02 22:21:00] Importing reflectlite.trap.gz (106 of 177)
+[2025-04-02 22:21:00] Importing atomic.trap.gz (107 of 177)
+[2025-04-02 22:21:00] Importing exithook.trap.gz (108 of 177)
+[2025-04-02 22:21:00] Importing maps.trap.gz (109 of 177)
+[2025-04-02 22:21:00] Importing math.trap.gz (110 of 177)
+[2025-04-02 22:21:00] Importing sys.trap.gz (111 of 177)
+[2025-04-02 22:21:00] Importing singleflight.trap.gz (112 of 177)
+[2025-04-02 22:21:00] Importing stringslite.trap.gz (113 of 177)
+[2025-04-02 22:21:00] Importing sync.trap.gz (114 of 177)
+[2025-04-02 22:21:00] Importing execenv.trap.gz (115 of 177)
+[2025-04-02 22:21:00] Importing unix.trap.gz (116 of 177)
+[2025-04-02 22:21:00] Importing testlog.trap.gz (117 of 177)
+[2025-04-02 22:21:00] Importing unsafeheader.trap.gz (118 of 177)
+[2025-04-02 22:21:00] Importing fs.trap.gz (119 of 177)
+[2025-04-02 22:21:00] Importing io.trap.gz (120 of 177)
+[2025-04-02 22:21:00] Importing iter.trap.gz (121 of 177)
+[2025-04-02 22:21:00] Importing internal.trap.gz (122 of 177)
+[2025-04-02 22:21:00] Importing log.trap.gz (123 of 177)
+[2025-04-02 22:21:00] Importing maps.trap.gz (124 of 177)
+[2025-04-02 22:21:00] Importing big.trap.gz (125 of 177)
+[2025-04-02 22:21:00] Importing bits.trap.gz (126 of 177)
+[2025-04-02 22:21:00] Importing v2.trap.gz (127 of 177)
+[2025-04-02 22:21:00] Importing rand.trap.gz (128 of 177)
+[2025-04-02 22:21:00] Importing math.trap.gz (129 of 177)
+[2025-04-02 22:21:00] Importing metadata.trap.gz (130 of 177)
+[2025-04-02 22:21:00] Importing multipart.trap.gz (131 of 177)
+[2025-04-02 22:21:00] Importing quotedprintable.trap.gz (132 of 177)
+[2025-04-02 22:21:00] Importing mime.trap.gz (133 of 177)
+[2025-04-02 22:21:00] Importing httptrace.trap.gz (134 of 177)
+[2025-04-02 22:21:00] Importing ascii.trap.gz (135 of 177)
+[2025-04-02 22:21:00] Importing internal.trap.gz (136 of 177)
+[2025-04-02 22:21:00] Importing http.trap.gz (137 of 177)
+[2025-04-02 22:21:01] Importing netip.trap.gz (138 of 177)
+[2025-04-02 22:21:01] Importing textproto.trap.gz (139 of 177)
+[2025-04-02 22:21:01] Importing url.trap.gz (140 of 177)
+[2025-04-02 22:21:01] Importing net.trap.gz (141 of 177)
+[2025-04-02 22:21:01] Importing os.trap.gz (142 of 177)
+[2025-04-02 22:21:01] Importing filepath.trap.gz (143 of 177)
+[2025-04-02 22:21:01] Importing path.trap.gz (144 of 177)
+[2025-04-02 22:21:01] Importing reflect.trap.gz (145 of 177)
+[2025-04-02 22:21:01] Importing runtime.trap.gz (146 of 177)
+[2025-04-02 22:21:01] Importing slices.trap.gz (147 of 177)
+[2025-04-02 22:21:01] Importing sort.trap.gz (148 of 177)
+[2025-04-02 22:21:01] Importing strconv.trap.gz (149 of 177)
+[2025-04-02 22:21:01] Importing strings.trap.gz (150 of 177)
+[2025-04-02 22:21:01] Importing atomic.trap.gz (151 of 177)
+[2025-04-02 22:21:01] Importing sync.trap.gz (152 of 177)
+[2025-04-02 22:21:01] Importing syscall.trap.gz (153 of 177)
+[2025-04-02 22:21:01] Importing time.trap.gz (154 of 177)
+[2025-04-02 22:21:01] Importing utf16.trap.gz (155 of 177)
+[2025-04-02 22:21:01] Importing utf8.trap.gz (156 of 177)
+[2025-04-02 22:21:01] Importing unicode.trap.gz (157 of 177)
+[2025-04-02 22:21:01] Importing unique.trap.gz (158 of 177)
+[2025-04-02 22:21:01] Importing universe.trap.gz (159 of 177)
+[2025-04-02 22:21:01] Importing unsafe.trap.gz (160 of 177)
+[2025-04-02 22:21:01] Importing chacha20.trap.gz (161 of 177)
+[2025-04-02 22:21:01] Importing chacha20poly1305.trap.gz (162 of 177)
+[2025-04-02 22:21:01] Importing asn1.trap.gz (163 of 177)
+[2025-04-02 22:21:01] Importing cryptobyte.trap.gz (164 of 177)
+[2025-04-02 22:21:01] Importing alias.trap.gz (165 of 177)
+[2025-04-02 22:21:01] Importing poly1305.trap.gz (166 of 177)
+[2025-04-02 22:21:01] Importing dnsmessage.trap.gz (167 of 177)
+[2025-04-02 22:21:01] Importing httpguts.trap.gz (168 of 177)
+[2025-04-02 22:21:01] Importing httpproxy.trap.gz (169 of 177)
+[2025-04-02 22:21:01] Importing hpack.trap.gz (170 of 177)
+[2025-04-02 22:21:01] Importing idna.trap.gz (171 of 177)
+[2025-04-02 22:21:01] Importing route.trap.gz (172 of 177)
+[2025-04-02 22:21:01] Importing bidirule.trap.gz (173 of 177)
+[2025-04-02 22:21:01] Importing transform.trap.gz (174 of 177)
+[2025-04-02 22:21:01] Importing bidi.trap.gz (175 of 177)
+[2025-04-02 22:21:01] Importing norm.trap.gz (176 of 177)
+[2025-04-02 22:21:01] Importing weak.trap.gz (177 of 177)
+[2025-04-02 22:21:01] [PROGRESS] dataset import> Merging relations
+[2025-04-02 22:21:01] Merging 1 fragment for 'folders'.
+[2025-04-02 22:21:01] Merged 38 bytes for 'folders'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'containerparent'.
+[2025-04-02 22:21:01] Merged 41 bytes for 'containerparent'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'files'.
+[2025-04-02 22:21:01] Merged 30 bytes for 'files'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'locations_default'.
+[2025-04-02 22:21:01] Merged 552 bytes for 'locations_default'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'has_location'.
+[2025-04-02 22:21:01] Merged 308 bytes for 'has_location'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'modtokens'.
+[2025-04-02 22:21:01] Merged 50 bytes for 'modtokens'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'modexprs'.
+[2025-04-02 22:21:01] Merged 55 bytes for 'modexprs'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'scopes'.
+[2025-04-02 22:21:01] Merged 285 bytes for 'scopes'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'scopenesting'.
+[2025-04-02 22:21:01] Merged 296 bytes for 'scopenesting'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'objects'.
+[2025-04-02 22:21:01] Merged 102258 bytes (99.86 KiB) for 'objects'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'objectscopes'.
+[2025-04-02 22:21:01] Merged 16143 bytes (15.76 KiB) for 'objectscopes'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'literals'.
+[2025-04-02 22:21:01] Merged 213 bytes for 'literals'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'exprs'.
+[2025-04-02 22:21:01] Merged 420 bytes for 'exprs'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'specs'.
+[2025-04-02 22:21:01] Merged 59 bytes for 'specs'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'decls'.
+[2025-04-02 22:21:01] Merged 63 bytes for 'decls'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'types'.
+[2025-04-02 22:21:01] Merged 19712 bytes (19.25 KiB) for 'types'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'type_of'.
+[2025-04-02 22:21:01] Merged 230 bytes for 'type_of'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'defs'.
+[2025-04-02 22:21:01] Merged 40 bytes for 'defs'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'scopenodes'.
+[2025-04-02 22:21:01] Merged 44 bytes for 'scopenodes'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'uses'.
+[2025-04-02 22:21:01] Merged 110 bytes for 'uses'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'stmts'.
+[2025-04-02 22:21:01] Merged 93 bytes for 'stmts'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'comment_groups'.
+[2025-04-02 22:21:01] Merged 57 bytes for 'comment_groups'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'comments'.
+[2025-04-02 22:21:01] Merged 82 bytes for 'comments'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'objecttypes'.
+[2025-04-02 22:21:01] Merged 90498 bytes (88.38 KiB) for 'objecttypes'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'numlines'.
+[2025-04-02 22:21:01] Merged 48 bytes for 'numlines'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'doc_comments'.
+[2025-04-02 22:21:01] Merged 33 bytes for 'doc_comments'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'typename'.
+[2025-04-02 22:21:01] Merged 4707 bytes (4.60 KiB) for 'typename'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'element_type'.
+[2025-04-02 22:21:01] Merged 2217 bytes (2.17 KiB) for 'element_type'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'key_type'.
+[2025-04-02 22:21:01] Merged 339 bytes for 'key_type'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'underlying_type'.
+[2025-04-02 22:21:01] Merged 4961 bytes (4.84 KiB) for 'underlying_type'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'type_objects'.
+[2025-04-02 22:21:01] Merged 4436 bytes (4.33 KiB) for 'type_objects'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'methodreceivers'.
+[2025-04-02 22:21:01] Merged 11322 bytes (11.06 KiB) for 'methodreceivers'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'base_type'.
+[2025-04-02 22:21:01] Merged 3837 bytes (3.75 KiB) for 'base_type'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'component_types'.
+[2025-04-02 22:21:01] Merged 90987 bytes (88.85 KiB) for 'component_types'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'methodhosts'.
+[2025-04-02 22:21:01] Merged 970 bytes for 'methodhosts'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'fieldstructs'.
+[2025-04-02 22:21:01] Merged 8904 bytes (8.70 KiB) for 'fieldstructs'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'struct_tags'.
+[2025-04-02 22:21:01] Merged 159 bytes for 'struct_tags'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'constvalues'.
+[2025-04-02 22:21:01] Merged 67 bytes for 'constvalues'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'fields'.
+[2025-04-02 22:21:01] Merged 47 bytes for 'fields'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'variadic'.
+[2025-04-02 22:21:01] Merged 101 bytes for 'variadic'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'array_length'.
+[2025-04-02 22:21:01] Merged 931 bytes for 'array_length'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'interface_private_method_ids'.
+[2025-04-02 22:21:01] Merged 184 bytes for 'interface_private_method_ids'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'packages'.
+[2025-04-02 22:21:01] Merged 1110 bytes (1.08 KiB) for 'packages'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'typeparam'.
+[2025-04-02 22:21:01] Merged 2044 bytes (2.00 KiB) for 'typeparam'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'compilations'.
+[2025-04-02 22:21:01] Merged 27 bytes for 'compilations'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'compilation_args'.
+[2025-04-02 22:21:01] Merged 44 bytes for 'compilation_args'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'compilation_compiling_files'.
+[2025-04-02 22:21:01] Merged 43 bytes for 'compilation_compiling_files'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'compilation_finished'.
+[2025-04-02 22:21:01] Merged 67 bytes for 'compilation_finished'.
+[2025-04-02 22:21:01] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-04-02 22:21:01] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-04-02 22:21:01] Saving string and id pools to disk.
+[2025-04-02 22:21:01] Finished importing TRAP files.
+[2025-04-02 22:21:01] Read 13.06 MiB of uncompressed TRAP data.
+[2025-04-02 22:21:01] Uncompressed relation data size: 1.27 MiB
+[2025-04-02 22:21:01] Relation data size: 360.62 KiB (merge rate: 6.98 MiB/s)
+[2025-04-02 22:21:01] String pool size: 2.41 MiB
+[2025-04-02 22:21:01] ID pool size: 4.50 MiB
+[2025-04-02 22:21:01] [PROGRESS] dataset import> Finished writing database (relations: 360.62 KiB; string pool: 2.41 MiB).
+[2025-04-02 22:21:01] Pausing evaluation to close the cache at sequence stamp o+101
+[2025-04-02 22:21:01] The disk cache is freshly trimmed; leave it be.
+[2025-04-02 22:21:01] Unpausing evaluation
+[2025-04-02 22:21:01] Plumbing command codeql dataset import completed.
+[2025-04-02 22:21:01] [PROGRESS] database finalize> TRAP import complete (834ms).
+[2025-04-02 22:21:01] Running plumbing command: codeql database cleanup -- /Users/artem/Projects/GVA/gva_codeql_db
+[2025-04-02 22:21:01] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2025-04-02 22:21:01] [PROGRESS] database cleanup> TRAP files cleaned up (15ms).
+[2025-04-02 22:21:01] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2025-04-02 22:21:01] [PROGRESS] database cleanup> Scratch directory cleaned up (2ms).
+[2025-04-02 22:21:01] Running plumbing command: codeql dataset cleanup -- /Users/artem/Projects/GVA/gva_codeql_db/db-go
+[2025-04-02 22:21:01] [PROGRESS] dataset cleanup> Cleaning up dataset in /Users/artem/Projects/GVA/gva_codeql_db/db-go.
+[2025-04-02 22:21:01] Trimming disk cache at /Users/artem/Projects/GVA/gva_codeql_db/db-go/default/cache in mode trim.
+[2025-04-02 22:21:01] Sequence stamp origin is -6065087982099762409
+[2025-04-02 22:21:01] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2025-04-02 22:21:01] Unpausing evaluation
+[2025-04-02 22:21:01] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2025-04-02 22:21:01] Unpausing evaluation
+[2025-04-02 22:21:01] Trimming completed (1ms): Trimmed disposable data from cache.
+[2025-04-02 22:21:01] Pausing evaluation to close the cache at sequence stamp o+2
+[2025-04-02 22:21:01] The disk cache is freshly trimmed; leave it be.
+[2025-04-02 22:21:01] Unpausing evaluation
+[2025-04-02 22:21:01] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2025-04-02 22:21:01] [PROGRESS] dataset cleanup> Finalizing dataset in /Users/artem/Projects/GVA/gva_codeql_db/db-go
+[2025-04-02 22:21:01] [DETAILS] dataset cleanup> Finished deleting ID pool from /Users/artem/Projects/GVA/gva_codeql_db/db-go (1ms).
+[2025-04-02 22:21:01] Plumbing command codeql dataset cleanup completed.
+[2025-04-02 22:21:01] Plumbing command codeql database cleanup completed with status 0.
+[2025-04-02 22:21:01] [PROGRESS] database finalize> Finished zipping source archive (1.03 KiB).
+[2025-04-02 22:21:01] Plumbing command codeql database finalize completed.
+[2025-04-02 22:21:01] [PROGRESS] database create> Successfully created database at /Users/artem/Projects/GVA/gva_codeql_db.
+[2025-04-02 22:21:01] Terminating normally.

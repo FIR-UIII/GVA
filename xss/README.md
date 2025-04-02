@@ -5,10 +5,16 @@ http://localhost:8080/?input=<script>alert('XSS')</script>
 ```
 
 How to find in code
-```
-Semgrep
+```bash
+# Semgrep
+$ semgrep --config="r/go.lang.security.injection.raw-html-format.raw-html-format"
+$ semgrep --config="r/go.lang.security.audit.xss"
 
-CodeQL
+# CodeQL
+# use rule https://codeql.github.com/codeql-query-help/go/go-reflected-xss/
+
+$ codeql database create gva_codeql_db --language=go
+$ run > xss.ql
 ```
 
 How to avoid:
